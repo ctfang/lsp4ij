@@ -1,8 +1,8 @@
 <idea-plugin>
     <id>com.redhat.devtools.lsp4ij</id>
-    <name>LSP4IJ</name>
+    <name>LSP4IJ ZY</name>
     <version>1.0</version>
-    <vendor email="developers@redhat.com" url="https://github.com/redhat-developer/lsp4ij/issues">Red-Hat</vendor>
+    <vendor email="developers@php-any.com" url="https://github.com/php-any/lsp4ij">php-any</vendor>
 
     <change-notes><![CDATA[
      <h3>0.16.1</h3>
