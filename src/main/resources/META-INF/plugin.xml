@@ -1057,7 +1057,11 @@
         <fileType
                 name="ZY"
                 language="ZY"
+                extensions="zy"
                 implementationClass="com.redhat.devtools.lsp4ij.filetypes.ZYFileType"/>
+        <lang.syntaxHighlighterFactory
+                language="ZY"
+                implementationClass="com.redhat.devtools.lsp4ij.filetypes.ZYSyntaxHighlighterFactory"/>
         <fileEditorProvider
                 id="lsp.disassembly"
                 implementation="com.redhat.devtools.lsp4ij.dap.disassembly.DisassemblyFileEditorProvider"/>

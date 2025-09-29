@@ -11,25 +11,40 @@
 [![JetBrains Plugin Rating][plugin-rating-svg]][plugin-repo]
 [![JetBrains plugins][plugin-downloads-svg]][plugin-repo]
 
+## Fork notice
+
+This repository is a derivative work based on `redhat-developer/lsp4ij`.
+
+We keep the original license (EPL-2.0) and attribution, and we add the following changes on top of upstream:
+
+- ZY 语言文件类型与图标：将 `*.zy` 关联到 `ZY` 文件类型，并启用 `icons/zy-file.svg`。
+- 基础语法高亮：新增 `ZYSimpleLexer`、`ZYSyntaxHighlighter`、`ZYSyntaxHighlighterFactory`，提供关键字、字符串、数字、变量、注解、类型、函数名与运算符的基本高亮（参考 `origami.tmLanguage.json`）。
+- 其他：最小化变更，未影响上游的 LSP 与 DAP 功能。
+
+详见 `NOTICE.md` 中的致谢与变更列表。
+
+> 中文说明请参见 [README_zh.md](README_zh.md)。
+
 ## Description
+
 <!-- Plugin description -->
 
-LSP4IJ is a free and open-source 
+LSP4IJ is a free and open-source
 
- * [Language Server protocol (LSP)](https://microsoft.github.io/language-server-protocol/) client compatible with all flavours of IntelliJ.
- * [Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol/) support with [Debug Adapter Protocol Run/Debug configuration](./docs/dap/UserGuide.md).
+- [Language Server protocol (LSP)](https://microsoft.github.io/language-server-protocol/) client compatible with all flavours of IntelliJ.
+- [Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol/) support with [Debug Adapter Protocol Run/Debug configuration](./docs/dap/UserGuide.md).
 
 It allows you to integrate any `language server` that communicates with its client via `stdio`:
 
-* by `developing an IntelliJ plugin` with LSP `extension points`:
-  * [com.redhat.devtools.lsp4ij.server](./docs/DeveloperGuide.md#extension-point-declaration) extension point to define a language server.
-  * [com.redhat.devtools.lsp4ij.languageMapping](./docs/DeveloperGuide.md#declare-file-mappings) to associate an IntelliJ language with a language server definition.
-* by manually adding [language server definitions](./docs/UserDefinedLanguageServer.md), 
-supporting custom server settings. This approach doesn't require developing a specific IntelliJ plugin.
+- by `developing an IntelliJ plugin` with LSP `extension points`:
+  - [com.redhat.devtools.lsp4ij.server](./docs/DeveloperGuide.md#extension-point-declaration) extension point to define a language server.
+  - [com.redhat.devtools.lsp4ij.languageMapping](./docs/DeveloperGuide.md#declare-file-mappings) to associate an IntelliJ language with a language server definition.
+- by manually adding [language server definitions](./docs/UserDefinedLanguageServer.md),
+  supporting custom server settings. This approach doesn't require developing a specific IntelliJ plugin.
 
 LSP4IJ also provides:
 
-* an [LSP Consoles view](./docs/UserGuide.md#lsp-console) to tracks LSP requests, responses and notifications in a console:
+- an [LSP Consoles view](./docs/UserGuide.md#lsp-console) to tracks LSP requests, responses and notifications in a console:
 
 ![LSP console](./docs/images/LSPConsole.png)
 
@@ -39,68 +54,68 @@ If you select the language server node, you can configure it the same way as in 
 
 and use the left toolbar to `Apply` or `Reset` the settings.
 
-* a [Language Servers preferences page](./docs/UserGuide.md#language-servers-preferences) to configure the LSP trace level, the debug port to use to debug language server:
+- a [Language Servers preferences page](./docs/UserGuide.md#language-servers-preferences) to configure the LSP trace level, the debug port to use to debug language server:
 
 ![Language Server preferences](./docs/images/LanguageServerPreferences.png)
 
 You can find more documentation in:
 
- * [the developer guide](./docs/DeveloperGuide.md), providing step-by-step instructions on how to integrate a language server in LSP4J in an external IntelliJ plugin.
- * [the User-defined language server documentation](./docs/UserDefinedLanguageServer.md), explaining how to integrate a language server in LSP4J with few settings. 
- * [the user guide](./docs/UserGuide.md), which explains how to use LSP console and Language Server preferences.
- * [the LSP Support overview](./docs/LSPSupport.md), describing which LSP features are implemented, and how.
+- [the developer guide](./docs/DeveloperGuide.md), providing step-by-step instructions on how to integrate a language server in LSP4J in an external IntelliJ plugin.
+- [the User-defined language server documentation](./docs/UserDefinedLanguageServer.md), explaining how to integrate a language server in LSP4J with few settings.
+- [the user guide](./docs/UserGuide.md), which explains how to use LSP console and Language Server preferences.
+- [the LSP Support overview](./docs/LSPSupport.md), describing which LSP features are implemented, and how.
 
 <!-- Plugin description end -->
 
 ## Articles
 
- * [Meet LSP4IJ, a new LSP Client for JetBrains-based IDEs](https://idetools.dev/blog/lsp4ij-announcement/)
- * [Meet LSP4IJ, a new Debug Adapter Protocol for JetBrains-based IDEs](https://idetools.dev/blog/lsp4ij-dap-announcement/)
+- [Meet LSP4IJ, a new LSP Client for JetBrains-based IDEs](https://idetools.dev/blog/lsp4ij-announcement/)
+- [Meet LSP4IJ, a new Debug Adapter Protocol for JetBrains-based IDEs](https://idetools.dev/blog/lsp4ij-dap-announcement/)
 
 ## Who is using LSP4IJ?
 
 Here are some projects that use LSP4IJ:
 
- * [Quarkus Tools for IntelliJ](https://github.com/redhat-developer/intellij-quarkus)
- * [Inga for IntelliJ](https://github.com/seachicken/intellij-inga)
- * [IntelliJ SumnekoLua](https://github.com/CppCXY/Intellij-SumnekoLua)
- * [Haskell LSP for IntelliJ](https://github.com/rockofox/intellij-haskell-lsp)
- * [Zowe™ COBOL Language Support](https://github.com/zowe/zowe-cobol-language-support-intellij)
- * [ZigBrains](https://github.com/FalsePattern/ZigBrains)
- * [Pyright for PyCharm](https://github.com/InSyncWithFoo/pyright-for-pycharm)
- * [Intellij EmmyLua2](https://github.com/EmmyLua/Intellij-EmmyLua2)
- * [Lean4ij](https://github.com/onriv/lean4ij)
- * [Intellij KCL](https://github.com/kcl-lang/intellij-kcl)
- * [Ruff for PyCharm](https://github.com/koxudaxi/ruff-pycharm-plugin)
- * [Intellij Gleam](https://github.com/themartdev/intellij-gleam)
- * [Liberty Tools for IntelliJ](https://github.com/OpenLiberty/liberty-tools-intellij)
- * [Vespa Schema Language Support](https://github.com/vespa-engine/vespa/tree/master/integration/schema-language-server/clients/intellij)
- * [Jimmer DTO LSP](https://github.com/Enaium/jimmer-dto-lsp)
- * [Qt Tools for Android Studio](https://code.qt.io/cgit/qt-labs/android-studio-tools.git/)
- * [Clojure LSP Intellij](https://github.com/clojure-lsp/clojure-lsp-intellij)
- * [GroovyScript for IntelliJ](https://github.com/IntegerLimit/GroovyScriptPlugin)
- * [Redscript Intellij](https://github.com/pawrequest/redscript-intellij)
- * [AngelScript Language Server for IntelliJ](https://github.com/sashi0034/angel-intellij)
- * [RobotCode - Robot Framework Support](https://robotcode.io)
- * [IntelliJ-gno](https://github.com/gnoverse/intellij-gno)
- * [SAP CDS Language Support for IntelliJ](https://github.com/cap-js/cds-intellij)
- * [RyeCharm](https://github.com/InSyncWithFoo/ryecharm)
- * [Huly Code](https://github.com/hcengineering/huly-code)
- * [SDLB LSP](https://github.com/smart-data-lake/sdl-lsp)
- * [Bloc Linter Support for IntelliJ](https://github.com/felangel/bloc)
- * [Vala JetBrains Plugin](https://github.com/Tbusk/vala-jetbrains-plugin)
- * [BAML JetBrains Plugin](http://github.com/BoundaryML/baml/tree/canary/jetbrains)
- * [intellij-cangjie](https://github.com/lin-qingying/intellij-cangjie)
+- [Quarkus Tools for IntelliJ](https://github.com/redhat-developer/intellij-quarkus)
+- [Inga for IntelliJ](https://github.com/seachicken/intellij-inga)
+- [IntelliJ SumnekoLua](https://github.com/CppCXY/Intellij-SumnekoLua)
+- [Haskell LSP for IntelliJ](https://github.com/rockofox/intellij-haskell-lsp)
+- [Zowe™ COBOL Language Support](https://github.com/zowe/zowe-cobol-language-support-intellij)
+- [ZigBrains](https://github.com/FalsePattern/ZigBrains)
+- [Pyright for PyCharm](https://github.com/InSyncWithFoo/pyright-for-pycharm)
+- [Intellij EmmyLua2](https://github.com/EmmyLua/Intellij-EmmyLua2)
+- [Lean4ij](https://github.com/onriv/lean4ij)
+- [Intellij KCL](https://github.com/kcl-lang/intellij-kcl)
+- [Ruff for PyCharm](https://github.com/koxudaxi/ruff-pycharm-plugin)
+- [Intellij Gleam](https://github.com/themartdev/intellij-gleam)
+- [Liberty Tools for IntelliJ](https://github.com/OpenLiberty/liberty-tools-intellij)
+- [Vespa Schema Language Support](https://github.com/vespa-engine/vespa/tree/master/integration/schema-language-server/clients/intellij)
+- [Jimmer DTO LSP](https://github.com/Enaium/jimmer-dto-lsp)
+- [Qt Tools for Android Studio](https://code.qt.io/cgit/qt-labs/android-studio-tools.git/)
+- [Clojure LSP Intellij](https://github.com/clojure-lsp/clojure-lsp-intellij)
+- [GroovyScript for IntelliJ](https://github.com/IntegerLimit/GroovyScriptPlugin)
+- [Redscript Intellij](https://github.com/pawrequest/redscript-intellij)
+- [AngelScript Language Server for IntelliJ](https://github.com/sashi0034/angel-intellij)
+- [RobotCode - Robot Framework Support](https://robotcode.io)
+- [IntelliJ-gno](https://github.com/gnoverse/intellij-gno)
+- [SAP CDS Language Support for IntelliJ](https://github.com/cap-js/cds-intellij)
+- [RyeCharm](https://github.com/InSyncWithFoo/ryecharm)
+- [Huly Code](https://github.com/hcengineering/huly-code)
+- [SDLB LSP](https://github.com/smart-data-lake/sdl-lsp)
+- [Bloc Linter Support for IntelliJ](https://github.com/felangel/bloc)
+- [Vala JetBrains Plugin](https://github.com/Tbusk/vala-jetbrains-plugin)
+- [BAML JetBrains Plugin](http://github.com/BoundaryML/baml/tree/canary/jetbrains)
+- [intellij-cangjie](https://github.com/lin-qingying/intellij-cangjie)
+
 ## Requirements
 
-* Intellij IDEA 2023.3 or more recent (we **try** to support the last 4 major IDEA releases)
-* Java JDK (or JRE) 17 or more recent
+- Intellij IDEA 2023.3 or more recent (we **try** to support the last 4 major IDEA releases)
+- Java JDK (or JRE) 17 or more recent
 
 ## Contributing
 
 This is an open source project open to anyone. Contributions are extremely welcome!
 
- 
 ### Building
 
 Project is managed by Gradle. So building is quite easy.
@@ -112,7 +127,8 @@ Run the following command:
 ```sh
 ./gradlew buildPlugin
 ```
-The plugin distribution file is located in ```build/distributions```.
+
+The plugin distribution file is located in `build/distributions`.
 
 #### Testing
 
@@ -137,13 +153,13 @@ You can easily install nightly builds from the nightly channel:
 
 - in IntelliJ, open `Setting > Plugins > [Gear icon] > Manage Plugin Repositories...`
 - Add `https://plugins.jetbrains.com/plugins/nightly/23257` and press `OK`
-<img alt="Nightly Channel Repository" src="docs/images/nightly-channel-repo.png" width="500px" />
+  <img alt="Nightly Channel Repository" src="docs/images/nightly-channel-repo.png" width="500px" />
 - install the latest `LSP4IJ` version
 
 Nightly builds are published once a day.
 
-Data and Telemetry
-==================
+# Data and Telemetry
+
 If the [Red Hat Telemetry](https://github.com/redhat-developer/intellij-redhat-telemetry) plugin is installed, the LSP4IJ plugin will collect anonymous [usage data](USAGE_DATA.md) and send it to Red Hat servers to help improve our products and services. Read our [privacy statement](https://developers.redhat.com/article/tool-data-collection) to learn more. This extension respects the Red Hat Telemetry setting which you can learn more about at [https://github.com/redhat-developer/intellij-redhat-telemetry#telemetry-reporting](https://github.com/redhat-developer/intellij-redhat-telemetry#telemetry-reporting)
 
 ## Feedback
@@ -152,24 +168,25 @@ File a bug in [GitHub Issues](https://github.com/redhat-developer/lsp4ij/issues)
 
 You can have 2 kinds of errors:
 
- * an error from LSP4IJ, in this case, the error will be reported in the standard IntelliJ log.
- * an error coming from the language server.
+- an error from LSP4IJ, in this case, the error will be reported in the standard IntelliJ log.
+- an error coming from the language server.
 
-For the second case, you can customize the error reporting with the `Debug / Error reporting` combo box 
+For the second case, you can customize the error reporting with the `Debug / Error reporting` combo box
 by opening the `Languages & Frameworks / Language Servers` preferences:
 
 ![Error reporting combo box](./docs/images/troubleshooting/LanguageServerErrorReportingSetting.png)
 
 You can select:
- * `None` : in this case the language server error will be ignored.
- * `In notification` (default value) : in this case the language server error appear as a `notification`:
-![Error in notification](./docs/images/troubleshooting/LanguageServerErrorInNotification.png)
- The error notification shows 3 possible actions:
-   * `Disable error reporting` : sets the error reporting to `None`.
-   * `Report error in Log` : sets the error reporting to `In log`. 
-   * `Open LSP4IJ documentation` : opens this documentation. 
- * `In log` : in this case the language server error will be logged in the standard `IntelliJ log`:
-![Error in log](./docs/images/troubleshooting/LanguageServerErrorInLog.png)
+
+- `None` : in this case the language server error will be ignored.
+- `In notification` (default value) : in this case the language server error appear as a `notification`:
+  ![Error in notification](./docs/images/troubleshooting/LanguageServerErrorInNotification.png)
+  The error notification shows 3 possible actions:
+  - `Disable error reporting` : sets the error reporting to `None`.
+  - `Report error in Log` : sets the error reporting to `In log`.
+  - `Open LSP4IJ documentation` : opens this documentation.
+- `In log` : in this case the language server error will be logged in the standard `IntelliJ log`:
+  ![Error in log](./docs/images/troubleshooting/LanguageServerErrorInLog.png)
 
 You can see this error's details in the [LSP Consoles view](./docs/UserGuide.md#lsp-console) (by setting the `Debug / Trace` combo box in `verbose`):
 
@@ -179,3 +196,5 @@ You can see this error's details in the [LSP Consoles view](./docs/UserGuide.md#
 
 Eclipse Public License 2.0.
 See [LICENSE](LICENSE) file.
+
+Additional notices and upstream attribution are provided in [NOTICE.md](NOTICE.md).
