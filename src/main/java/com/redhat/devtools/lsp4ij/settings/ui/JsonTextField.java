@@ -20,6 +20,7 @@ import com.intellij.openapi.fileTypes.PlainTextFileType;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.*;
+import com.intellij.util.ui.UIUtil;
 import com.intellij.util.PsiErrorElementUtil;
 import com.intellij.util.containers.ContainerUtil;
 import com.redhat.devtools.lsp4ij.LSPIJUtils;
@@ -65,6 +66,12 @@ public class JsonTextField extends JPanel {
         editorTextField = service.getEditorField(jsonLanguage, project, features);
         editorTextField.setOneLineMode(false);
         editorTextField.setText(DEFAULT_VALUE);
+
+        // Ensure background follows current IDE theme (dark/light)
+        // Do NOT hardcode colors; use theme-aware UIUtil helpers.
+        setOpaque(true);
+        setBackground(UIUtil.getPanelBackground());
+        editorTextField.setBackground(UIUtil.getTextFieldBackground());
 
         // Add it to this panel
         setLayout(new BorderLayout());

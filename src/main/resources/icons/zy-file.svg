@@ -1,0 +1,41 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 明亮配色渐变：纸质蜘蛛主体使用暖色系过渡 -->
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B6B" />
+      <stop offset="100%" stop-color="#FFD93D" />
+    </linearGradient>
+    <!-- 腿部颜色：清爽青绿色 -->
+    <linearGradient id="legGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2EC4B6" />
+      <stop offset="100%" stop-color="#36D6C5" />
+    </linearGradient>
+  </defs>
+
+  <!-- 纸蜘蛛（简易折纸风） -->
+  <!-- 主体：菱形，模拟折纸主体 -->
+  <polygon points="8,2.5 12.2,8 8,13.5 3.8,8" fill="url(#bodyGrad)" />
+
+  <!-- 头部：上方小三角，突出动物形态 -->
+  <polygon points="7,2.5 9,2.5 8,1.2" fill="#FFFFFF" fill-opacity="0.9" />
+
+  <!-- 折痕：内部浅色线，体现纸张折叠感 -->
+  <line x1="8" y1="2.5" x2="8" y2="13.5" stroke="#FFFFFF" stroke-opacity="0.75" stroke-width="0.6" />
+  <line x1="3.8" y1="8" x2="12.2" y2="8" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="0.5" />
+
+  <!-- 腿部：左右各四条，使用简洁线段表现 -->
+  <!-- 左侧腿 -->
+  <path d="M6.2 6.4 L3.6 4.8" stroke="url(#legGrad)" stroke-width="1" stroke-linecap="round" />
+  <path d="M6 7.6 L3.2 6.6" stroke="url(#legGrad)" stroke-width="1" stroke-linecap="round" />
+  <path d="M6 8.6 L3 9" stroke="url(#legGrad)" stroke-width="1" stroke-linecap="round" />
+  <path d="M6.2 9.6 L3.6 11.2" stroke="url(#legGrad)" stroke-width="1" stroke-linecap="round" />
+
+  <!-- 右侧腿 -->
+  <path d="M9.8 6.4 L12.4 4.8" stroke="url(#legGrad)" stroke-width="1" stroke-linecap="round" />
+  <path d="M10 7.6 L12.8 6.6" stroke="url(#legGrad)" stroke-width="1" stroke-linecap="round" />
+  <path d="M10 8.6 L13 9" stroke="url(#legGrad)" stroke-width="1" stroke-linecap="round" />
+  <path d="M9.8 9.6 L12.4 11.2" stroke="url(#legGrad)" stroke-width="1" stroke-linecap="round" />
+
+  <!-- 高光描边：让主体更醒目 -->
+  <polygon points="8,2.5 12.2,8 8,13.5 3.8,8" fill="none" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="0.5" />
+</svg>

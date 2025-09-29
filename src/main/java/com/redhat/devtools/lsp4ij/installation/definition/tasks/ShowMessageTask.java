@@ -74,7 +74,11 @@ public class ShowMessageTask extends InstallerTask {
 
 
 
-        while(selectedAction.isNull() || notification.isExpired()) {
+        long startTime = System.currentTimeMillis();
+        long timeout = 30000; // 30 seconds timeout
+        
+        while((selectedAction.isNull() || notification.isExpired()) && 
+              (System.currentTimeMillis() - startTime) < timeout) {
             // Wait...
             try {
                 synchronized (selectedAction) {
@@ -82,6 +86,7 @@ public class ShowMessageTask extends InstallerTask {
                 }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
+                break;
             }
         }
         if (!selectedAction.isNull()) {

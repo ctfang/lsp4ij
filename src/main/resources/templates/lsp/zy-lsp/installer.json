@@ -1,0 +1,21 @@
+{
+  "id": "zy-lsp",
+  "name": "Install and verify ZY Language Server",
+  "executeOnStartServer": false,
+  "check": {
+    "exec": {
+      "name": "Trying current command",
+      "command": "${server.command}",
+      "timeout": 2000,
+      "onFail": {
+        "showMessage": {
+          "name": "ZY Language Server not found",
+          "content": [
+            "Please install the ZY Language Server (<code>zy-lsp</code>) and make sure it's available in your PATH.",
+            "Restart your IDE after installation."
+          ]
+        }
+      }
+    }
+  }
+}

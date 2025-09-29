@@ -302,6 +302,21 @@
                 factoryClass="com.redhat.devtools.lsp4ij.installation.definition.tasks.ConfigureServerTaskFactory"/>
     </extensions>
 
+    <!-- ZY Language Server built-in registration -->
+    <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
+        <server id="zy-lsp"
+                name="ZY Language Server"
+                factoryClass="com.redhat.devtools.lsp4ij.zy.ZYLanguageServerFactory">
+            <description><![CDATA[
+                Built-in ZY Language Server integration.
+            ]]></description>
+        </server>
+
+        <fileTypeMapping fileType="ZY"
+                         serverId="zy-lsp"
+                         languageId="zy"/>
+    </extensions>
+
     <extensions defaultExtensionNs="com.intellij">
         <applicationService
                 serviceImplementation="com.redhat.devtools.lsp4ij.installation.download.GitHubAssetFetcherManager"/>
@@ -1037,6 +1052,12 @@
         <fileType
                 name="Disassembly"
                 implementationClass="com.redhat.devtools.lsp4ij.dap.disassembly.DisassemblyFileType"/>
+        
+        <!-- ZY Language support -->
+        <fileType
+                name="ZY"
+                language="ZY"
+                implementationClass="com.redhat.devtools.lsp4ij.filetypes.ZYFileType"/>
         <fileEditorProvider
                 id="lsp.disassembly"
                 implementation="com.redhat.devtools.lsp4ij.dap.disassembly.DisassemblyFileEditorProvider"/>

@@ -1,0 +1,16 @@
+{
+  "id": "zy-lsp",
+  "name": "ZY Language Server",
+  "programArgs": {
+    "default": "zy-lsp -log-level 5 -log-file $PROJECT_DIR$/zy-lsp.log"
+  },
+  "fileTypeMappings": [
+    {
+      "fileType": {
+        "name": "ZY",
+        "patterns": ["*.zy"]
+      },
+      "languageId": "zy"
+    }
+  ]
+}
